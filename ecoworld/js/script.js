@@ -12,3 +12,23 @@ function toggleNavBar() {
         $navbar.classList.add('abs-pos');
     }
 }
+
+const $extlink = document.querySelectorAll('.ext-link')[0];
+$extlink.addEventListener('click', openLink, false);
+
+function openLink() {
+    window.open('https://www.thecodelovers.com.br', '_blank');
+}
+
+const $intLinks = document.querySelectorAll('.int-link');
+const $sectArr = document.querySelectorAll('main section');
+
+$intLinks.forEach(function(cur, idx) {
+    cur.addEventListener('click', function() {
+        window.scrollTo({
+            top: $sectArr[idx].offsetTop - $navbar.offsetHeight,
+            left: 0,
+            behavior: "smooth"
+        })
+    }, false);
+})
